@@ -2,7 +2,7 @@
 Data models for in-memory storage.
 
 These dataclasses mirror the shape of objects persisted in the in-memory store.
-Replace with SQLAlchemy ORM models when integrating a real database.
+Replace with Pydantic & SQLAlchemy ORM models when integrating a real database.
 """
 
 from dataclasses import dataclass, field
