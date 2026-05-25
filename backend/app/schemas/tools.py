@@ -18,7 +18,7 @@ class LatencyMetricsResponse(BaseModel):
 
 class DeploymentRequest(BaseModel):
     service: str | None = None
-    limit: int | None = 5
+    limit: int = 5
 
 
 class DeploymentResponse(BaseModel):

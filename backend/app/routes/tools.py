@@ -28,7 +28,7 @@ async def search_logs(body: LogSearchRequest) -> LogSearchResponse:
     result = await elastic_service.search_logs(
         query=body.query,
         index=body.index,
-        size=body.size or 10,
+        size=body.size,
         start_time=body.start_time,
         end_time=body.end_time,
     )
@@ -63,7 +63,7 @@ async def summarize_errors(body: ErrorSummaryRequest) -> ErrorSummaryResponse:
     """Return a summary of recent errors from Elasticsearch log indices."""
     result = await elastic_service.summarize_errors(
         index=body.index,
-        size=body.size or 20,
+        size=body.size,
         start_time=body.start_time,
         end_time=body.end_time,
     )
