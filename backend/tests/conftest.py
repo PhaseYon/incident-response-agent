@@ -22,3 +22,14 @@ def fake_incident():
         updated_at=datetime.now(timezone.utc),
         metadata={},
     )
+
+@pytest.fixture
+def fake_kibana_alert():
+    return {
+        "rule_name": "Checkout p95 latency threshold",
+        "rule_id": "apm-latency-threshold-checkout",
+        "message": "p95 latency exceeded 2000ms for 5 minutes",
+        "service": "checkout-service",
+        "severity": "high",
+        "kibana_url": "https://kibana.example.com/app/observability/alerts/...",
+    }
