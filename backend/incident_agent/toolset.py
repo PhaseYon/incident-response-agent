@@ -1,7 +1,7 @@
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StreamableHTTPConnectionParams
 
-from app.core.config import settings
+from .config import settings
 
 
 TOOLSET = MCPToolset(

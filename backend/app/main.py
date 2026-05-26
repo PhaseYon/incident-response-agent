@@ -4,7 +4,7 @@ from typing import AsyncGenerator
 from fastapi import FastAPI
 
 from app.core.config import settings
-from app.routes import health, tools, incidents, scenarios, alerts
+from app.routes import health, incidents, alerts
 from app.utils.logging import get_logger
 
 logger = get_logger(__name__)
@@ -27,9 +27,7 @@ def create_app() -> FastAPI:
     # Register routers
     app.include_router(alerts.router)
     app.include_router(health.router)
-    app.include_router(tools.router)
     app.include_router(incidents.router)
-    app.include_router(scenarios.router)
 
     return app
 
