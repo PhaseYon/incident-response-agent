@@ -9,22 +9,18 @@ TODO: Replace stub implementations with real Elastic MCP / Elasticsearch SDK cal
 
 from app.core.config import settings
 from app.utils.logging import get_logger
+from elasticsearch import Elasticsearch
 
 logger = get_logger(__name__)
 
 
 class ElasticService:
     def __init__(self) -> None:
-        # TODO: Initialize the real Elasticsearch client here, e.g.:
-        #   from elasticsearch import AsyncElasticsearch
-        #   self.client = AsyncElasticsearch(
-        #       hosts=[settings.elastic_host],
-        #       api_key=settings.elastic_api_key,
-        #   )
+        self.client = Elasticsearch(cloud_id=settings.elastic_cloud_id, api_key=settings.elastic_api_key)
         logger.info(
-            "ElasticService initialised (stub mode). "
+            "ElasticService initialised. "
             "Connect to: %s, index: %s",
-            settings.elastic_host,
+            settings.elastic_cloud_id,
             settings.elastic_index,
         )
 

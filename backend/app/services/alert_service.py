@@ -1,5 +1,4 @@
 from typing import Any
-from datetime import datetime, timezone
 
 from app.schemas.alerts import NormalizedAlert
 
@@ -11,7 +10,7 @@ def first_present(raw_payload: dict[str, Any], keys: list[str]) -> str:
     for key in keys:
         value = raw_payload.get(key)
 
-        if value:
+        if value is not None and value != "":
             return str(value)
 
     return FAILED_TO_PARSE
